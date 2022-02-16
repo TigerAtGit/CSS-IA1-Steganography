@@ -67,27 +67,22 @@ def encodeInImage(newimg, data):
             X += 1
 
 # encode function
-def encode():
+def encode(image, data):
     '''Takes input of the image, data or text 
     to be encoded and apply encoding'''
 
-    img = "static/images/encode.png" # image for encoding
-    image = Image.open(img, 'r')
-
-    data = "This is the message to be encoded"
     if len(data) == 0:
         raise ValueError('Data is empty!')
 
-    newimg = image.copy()
-    encodeInImage(newimg, data)
+    encoded_img = image.copy()
+    encodeInImage(encoded_img, data)
 
-    encoded_img = "static/images/encoded.png"
-    newimg.save(encoded_img, str(encoded_img.split(".")[1].upper()))
+    # encoded_img = "static/images/encoded.png"
+    # newimg.save(encoded_img, str(encoded_img.split(".")[1].upper()))
+    return encoded_img
 
 
-def decode():
-    img = "static/images/decode.png" # image for decoding
-    image = Image.open(img, 'r')
+def decode(image):
 
     decoded_data = ''
     imgdata = iter(image.getdata())
@@ -110,11 +105,14 @@ def decode():
         if pixels[-1] % 2 != 0:
             return decoded_data
 
-opt = input("Opt (E)/(D): ")
-if opt == 'E':
-    encode()
-elif opt == 'D':
-    decoded_data = decode()
-    print(f"Decoded data: {decoded_data}")
-else:
-    raise Exception("Invalid Input!")
+# opt = input("Opt (E)/(D): ")
+# if opt == 'E':
+#     img = "static/images/encode.png" # image for encoding
+#     image = Image.open(img, 'r')
+#     data = "This is the message to be encoded"
+#     encode(image, data)
+# elif opt == 'D':
+#     img = "static/images/decode.png" # image for decoding
+#     image = Image.open(img, 'r')
+#     decoded_data = decode(image)
+#     print(f"Decoded data: {decoded_data}")
