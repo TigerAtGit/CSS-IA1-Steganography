@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from stegano import encode,decode
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def encode():
         uploadfile = request.form.get('uploadfile')
         uploadimage = request.form.get('uploadimage')
         
-    return render_template('signinpage.html')
+    return render_template('index.html')
 
 
 @app.route('/', methods = ['POST', 'GET'])
@@ -23,4 +24,4 @@ def decode():
         inputimage = request.form.get('inputimage')
 
         
-    return render_template('signinpage.html')
+    return render_template('index.html')
