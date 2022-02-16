@@ -2,78 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 
 </head>
 
 <body>
-    <p class="tip">Image Stegnography</p>
-    <div class="cont">
-        <div class="form sign-in">
+  <p class="tip" style="color:white;">Image Stegnography</p>
+  <div class="cont">
+    <div class="form sign-in">
+      <form method="POST" id="form1" action="{{ url_for('encode') }}">
 
-            <h2>Encode Image</h2>
-            <label>
-        <span>Enter Text</span>
-        <input type="email" style="margin-bottom:10px" />
-      </label>
-            <form method="POST" id="form1" action="{{ url_for('signin_user') }}">
-                <label>
+        <h2>Encode Image</h2>
+        <label>
+          <span>Enter Text</span>
+          <input for="text1" type="email" style="margin-bottom:10px" />
+        </label>
+        <label>
           <span style="margin-top:0px">Or</span>
-          <button type="button" class="submit" style="width:70%;margin-top:10px">Upload File</button>
+          <button for="uploadfile" type="button" class="submit" style="width:70%;margin-top:10px">Upload File</button>
 
         </label>
-                <label>
+        <label>
           <span>Upload Image</span>
-          <button type="button" class="submit" style="width:70%;margin-top:10px">Upload File</button>
+          <button for="uploadimage" type="button" class="submit" style="width:70%;margin-top:10px">Upload Image</button>
 
         </label>
 
-                <!--<p class="forgot-pass">Forgot password?</p>-->
-                <button type="button" class="submit">Encode</button>
-                <button type="button" class="fb-btn"><span>Download Image</span></button>
-            </form>
-        </div>
-        <div class="sub-cont">
-            <div class="img">
-                <div class="img__text m--up">
-                    <h2>Decode Image</h2>
-                    <p>Click on the below button to decode image</p>
-                </div>
-                <div class="img__text m--in">
-                    <h2>Encode Image</h2>
-                    <p>Click on the below button to encode image</p>
-                </div>
-                <div class="img__btn">
-                    <span class="m--up">Decode</span>
-                    <span class="m--in">Encode</span>
-                </div>
-            </div>
-            <div class="form sign-up">
-                <h2>Decode Image</h2>
-                <label>
-          <label>
-            <span style="padding-bottom:80px">Upload Image to be decoded</span>
-            <br>
-            <button type="button" class="submit" style="width:70%;margin-top:10px">Upload Image</button>
-
-          </label>
-                </label>
-                <label style="margin-left:25%">
-          <span style="margin-bottom:100px">Output Text</span>
-
-          <form style="margin-top:15px;margin-left:0px">
-            <textarea name="myText" id="myTextarea" rows="4" placeholder="Output will appear here"
-              maxlength="400"></textarea>
-        </label>
-            </div>
-        </div>
+        <!--<p class="forgot-pass">Forgot password?</p>-->
+        <button type="submit" class="submit">Encode</button>
+        <button for="downloadimage" type="button" class="fb-btn"><span>Download Image</span></button>
+      </form>
     </div>
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img__text m--up">
+          <h2>Decode Image</h2>
+          <p>Click on the below button to decode image</p>
+        </div>
+        <div class="img__text m--in">
+          <h2>Encode Image</h2>
+          <p>Click on the below button to encode image</p>
+        </div>
+        <div class="img__btn">
+          <span class="m--up">Decode</span>
+          <span class="m--in">Encode</span>
+        </div>
+      </div>
+      <div class="form sign-up">
+        <h2>Decode Image</h2>
+        <form method="POST" id="form1" action="{{ url_for('decode') }}">
+          <label>
+            <label>
+              <span style="padding-bottom:80px">Upload Image to be decoded</span>
+              <br>
+              <button type="button" for="inputimage" class="submit" style="width:70%;margin-top:10px">Upload Image</button>
 
-    <script src="../static/javascript/home.js"></script>
+            </label>
+          </label>
+          <label style="margin-left:25%">
+            <span style="margin-bottom:100px">Output Text</span>
+
+            <form style="margin-top:15px;margin-left:0px">
+              <textarea name="myText" id="myTextarea" rows="4" placeholder="Output will appear here"
+                maxlength="400"></textarea>
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/javascript/home.js"></script>
 </body>
 
 </html>
