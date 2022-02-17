@@ -33,3 +33,9 @@ This is a web application capable of Encoding data (text) into the image and Dec
 - Install Flask using `pip install flask`
 - Run app using cmd: `flask run`
 - Project will then run on localhost (http://127.0.0.1:5000/)
+
+### Demo video:
+
+https://user-images.githubusercontent.com/68952732/154542582-ebd4c57e-8197-4012-a63e-696e7cb2b013.mp4
+
+
