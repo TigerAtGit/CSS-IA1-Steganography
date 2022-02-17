@@ -58,7 +58,7 @@ def encodeForm():
 @app.route('/decodeForm', methods = ['POST', 'GET'])
 def decodeForm():
     if request.method == 'POST':
-        input_image = request.files['input_image']
+        input_image = request.files['uploaded_image']
 
         if input_image.filename == '':
             flash('No file selected!')

@@ -6,6 +6,22 @@ actualBtn.addEventListener('change', function() {
     fileChosen.textContent = this.files[0].name
 })
 
+const actualBtn3 = document.getElementById('actualbtn3');
+
+const fileChosen3 = document.getElementById('filechosen3');
+
+actualBtn3.addEventListener('change', function() {
+    fileChosen3.textContent = this.files[0].name
+})
+
+const actualBtn2 = document.getElementById('actualbtn2');
+
+const fileChosen2 = document.getElementById('filechosen2');
+
+actualBtn2.addEventListener('change', function() {
+    fileChosen2.textContent = this.files[0].name
+})
+
 document.querySelector('.img__btn').addEventListener('click', function() {
     document.querySelector('.cont').classList.toggle('s--signup');
 });
