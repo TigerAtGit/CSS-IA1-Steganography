@@ -22,23 +22,22 @@ def index():
 @app.route('/encodeForm', methods = ['POST', 'GET'])
 def encodeForm():
     if request.method == 'POST':
-        print('Ha andar aa gya hu')
 
         text_data = request.form.get('text1')
-        print(text_data)
         # uploadfile = request.form.get('uploadfile')
         uploaded_image = request.files['uploaded_image']
-
-        print(str(uploaded_image))
         
         if uploaded_image.filename == '':
-            print('File not selected')
             flash('No file selected!')
             return redirect(request.url)
         
-        uimg = "static/images/upload.png"
-        uploaded_image.save(uimg)
-        encoded_image = encode(uimg, text_data)
+        if not uploaded_image and allowed_file(uploaded_image.filename):
+            flash('File format not supported!')
+            return redirect(request.url)
+            
+        # uimg = "static/images/upload.png"
+        # uploaded_image.save(uimg)
+        encoded_image = encode(uploaded_image, text_data)
         if encoded_image:
             print('Image encoded!')
         else:
@@ -46,23 +45,25 @@ def encodeForm():
         encoded_img = "static/images/encoded.png"
         encoded_image.save(encoded_img)
         
-        return render_template('index.html')
-    return render_template('index.html')
+        return render_template('index.html', flag=1)
+    return render_template('index.html', flag=0)
 
 
 @app.route('/decodeForm', methods = ['POST', 'GET'])
 def decodeForm():
     if request.method == 'POST':
-        if 'inputimage' not in request.files:
-            flash('No image uploaded!')
-            return redirect(request.url)
-
-        input_image = request.files['inputimage']
+        input_image = request.files['input_image']
 
         if input_image.filename == '':
             flash('No file selected!')
             return redirect(request.url)
 
+        if not input_image and allowed_file(input_image.filename):
+            flash('File format not supported!')
+            return redirect(request.url)
+
         decoded_data = decode(input_image)
-        
+        if decoded_data:
+            print('Image decoded :)')
+        return render_template('index.html', text=decoded_data)    
     return render_template('index.html')

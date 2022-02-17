@@ -74,6 +74,7 @@ def encode(image, data):
     if len(data) == 0:
         raise ValueError('Data is empty!')
 
+    image = Image.open(image, 'r')
     encoded_img = image.copy()
     encodeInImage(encoded_img, data)
 
@@ -84,6 +85,7 @@ def encode(image, data):
 
 def decode(image):
 
+    image = Image.open(image, 'r')
     decoded_data = ''
     imgdata = iter(image.getdata())
 

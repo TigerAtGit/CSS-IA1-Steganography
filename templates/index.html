@@ -19,7 +19,7 @@
         <h2>Encode Image</h2>
         <label>
           <span>Enter Text</span>
-          <input for="text1" name="text1" type="text" style="margin-bottom:10px" required/>
+          <input for="text1" name="text1" type="text" style="margin-bottom:10px" required />
         </label>
         <!-- <label>
           <span style="margin-top:0px">Or</span>
@@ -29,13 +29,17 @@
         <label>
           <span>Upload Image</span>
           <label class="custom-file-upload">
-            <input for="uploaded_image" name="uploaded_image" type="file" required/>
+            <input for="uploaded_image" name="uploaded_image" type="file" required />
             Upload Image
           </label>
-
         </label>
 
         <button type="submit" class="submit">Encode</button>
+        {% if flag %}
+        <a href="{{ '../static/images/encoded.png' }}" download>
+          Download
+        </a>
+        {% endif %}
         <button for="downloadimage" type="button" class="fb-btn"><span>Download Image</span></button>
       </form>
     </div>
@@ -56,26 +60,28 @@
       </div>
       <div class="form">
         <h2>Decode Image</h2>
-        <form method="POST" id="form1" action="{{ url_for('decodeForm') }}">
+        <form method="POST" id="form1" enctype="multipart/form-data" action="{{ url_for('decodeForm') }}">
           <label>
             <label>
               <span style="padding-bottom:80px">Upload Image to be decoded</span>
               <br>
+              <span>Upload Image</span>
               <label class="custom-file-upload">
-                <input type="file" />
+                <input for="input_image" name="input_image" type="file" required />
                 Upload Image
               </label>
-
             </label>
           </label>
           <label style="margin-left:25%">
             <span style="margin-bottom:100px">Output Text</span>
-
-            <form style="margin-top:15px;margin-left:0px">
-              <textarea name="myText" id="myTextarea" rows="4" placeholder="Output will appear here"
-                maxlength="400"></textarea>
+            <button type="submit" class="submit">Decode</button>
           </label>
         </form>
+        {% if text %}
+        <div style="margin-top:15px;margin-left:0px">
+          <p>{{ text }}</p>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
