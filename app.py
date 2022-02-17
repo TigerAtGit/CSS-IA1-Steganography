@@ -23,10 +23,16 @@ def index():
 def encodeForm():
     if request.method == 'POST':
 
-        text_data = request.form.get('text1')
-        # uploadfile = request.form.get('uploadfile')
+        text_data = request.form.get('text1', None)
+        uploaded_file = request.files['uploaded_file']
         uploaded_image = request.files['uploaded_image']
-        
+
+        if not text_data:
+            if uploaded_file.filename == '':
+                flash('Enter Text or upload a Text file!')
+                return redirect(request.url)
+            text_data = uploaded_file.read().decode("utf-8").replace('\n', '')
+
         if uploaded_image.filename == '':
             flash('No file selected!')
             return redirect(request.url)
@@ -35,17 +41,17 @@ def encodeForm():
             flash('File format not supported!')
             return redirect(request.url)
             
-        # uimg = "static/images/upload.png"
-        # uploaded_image.save(uimg)
         encoded_image = encode(uploaded_image, text_data)
         if encoded_image:
             print('Image encoded!')
         else:
-            print('huttt')
+            print('Error')
+
         encoded_img = "static/images/encoded.png"
         encoded_image.save(encoded_img)
-        
+
         return render_template('index.html', flag=1)
+        
     return render_template('index.html', flag=0)
 
 

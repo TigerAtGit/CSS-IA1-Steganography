@@ -18,33 +18,37 @@
 
                 <h2>Encode Image</h2>
                 <label>
-          <span>Enter Text</span>
-          <input for="text1" name="text1" type="text" style="margin-bottom:10px" required />
-        </label>
-                <!-- <label>
-          <span style="margin-top:0px">Or</span>
-          <button for="uploadfile" type="button" class="submit" style="width:70%;margin-top:10px">Upload
-            File</button>
-        </label> -->
+                    <span>Enter Text</span>
+                    <input for="text1" name="text1" type="text" style="margin-bottom:10px"/>
+                </label>
                 <label>
-          <span>Upload Image</span>
-          <label class="custom-file-upload">
-            <input for="uploaded_image" id="actualbtn" name="uploaded_image" type="file" required />
-            Upload Image
-          </label>
-                <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
+                    <span>Upload File</span>
+                    <label class="custom-file-upload">
+                        <input for="uploaded_file" id="actualbtn" name="uploaded_file" type="file"/>
+                        Upload File
+                    </label>
+                    <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
+                </label>
+                <label>
+                    <span>Upload Image</span>
+                    <label class="custom-file-upload">
+                        <input for="uploaded_image" id="actualbtn" name="uploaded_image" type="file" required />
+                        Upload Image
+                    </label>
+                    <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
                 </label>
 
                 <input type="file" name="file" id="file" class="inputfile" />
-                <button type="submit" class="submit">Encode</button> {% if flag %}
+                <button type="submit" class="submit">Encode</button> 
+                {% if flag %}
                 <label style="margin-bottom: 10px;">
-                  <span>Download Image</span>
-                
+                    <span>Download Image</span>
+
                 </label>
                 <a href="{{ '../static/images/encoded.png' }}" download style="all: unset;">
                     <button for="downloadimage" type="button" class="fb-btn"><span></span>
-            Download
-            </span></button>
+                        Download
+                        </span></button>
                 </a> {% endif %}
 
             </form>
@@ -68,25 +72,26 @@
                 <h2>Decode Image</h2>
                 <form method="POST" id="form1" enctype="multipart/form-data" action="{{ url_for('decodeForm') }}">
                     <label>
-            <label>
-              <span style="padding-bottom:80px">Upload Image to be decoded</span>
-              <br>
-              <span>Upload Image</span>
-              <label class="custom-file-upload">
-                <input for="uploaded_image" id="actualbtn" name="uploaded_image" type="file" required />
-                Upload Image
-              </label>
-                    <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
-                    </label>
+                        <label>
+                            <span style="padding-bottom:80px">Upload Image to be decoded</span>
+                            <br>
+                            <span>Upload Image</span>
+                            <label class="custom-file-upload">
+                                <input for="input_image" id="actualbtn" name="input_image" type="file" required />
+                                Upload Image
+                            </label>
+                            <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
+                        </label>
                     </label>
                     <label style="margin-left:25%">
-            <span style="margin-bottom:100px">Output Text</span>
-            <button type="submit" class="submit">Decode</button>
-          </label>
+                        <span style="margin-bottom:100px">Output Text</span>
+                        <button type="submit" class="submit">Decode</button>
+                    </label>
                 </form>
                 <label>
-          <span style="padding-bottom:80px">The decoded text will appear below</span>
-        </label> {% if text %}
+                    <span style="padding-bottom:80px">The decoded text will appear below</span>
+                </label>
+                {% if text %}
                 <div style="margin-top:15px;margin-left:100px">
                     <p>{{ text }}</p>
                 </div>
