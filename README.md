@@ -7,7 +7,7 @@
 Image Steganography is the method of hiding secret data in an image. In a nutshell, the main motive of steganography is to hide the intended information within any image that doesn’t appear to be secret just by looking at it.
 
 ### How It works?
-The idea behind **image-based** Steganography is very simple. Images are composed of digital data (pixels), which describes what’s inside the picture, usually the colors of all the pixels. Since we know every image is made up of pixels and every pixel contains 3-values (red, green, blue). Therefore each pixel will contain three numerical values. **Encoding** the data changes these values of the pixels. Whereas **decoding** will read these values to recover original data (or text) from the image.
+The idea behind **image-based** Steganography is very simple. Images are composed of digital data (pixels), which describes what’s inside the picture, usually the colors of all the pixels. Since we know every image is made up of pixels and every pixel contains 3-values (red, green, blue). Therefore, an image is represented as an N x M (in case of greyscale images) or N x M x 3 (in case of color images) matrix in memory, with each entry representing the intensity value of a pixel. In image steganography, a message is embedded into an image by altering the values of some pixels, which are chosen by an encryption algorithm. The recipient of the image must be aware of the same algorithm in order to know which pixels he or she must select to extract the message.
 
 
 ## Our Application - Image Steganography using Python
