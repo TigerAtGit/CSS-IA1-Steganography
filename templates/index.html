@@ -2,91 +2,100 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 
 </head>
 
 <body>
-  <p class="tip" style="color:white;">Image Stegnography</p>
-  <div class="cont">
-    <div class="form">
-      <form method="POST" id="form1" enctype="multipart/form-data" action="{{ url_for('encodeForm') }}">
+    <p class="tip" style="color:white;">Image Stegnography</p>
+    <div class="cont">
+        <div class="form">
+            <form method="POST" id="form1" enctype="multipart/form-data" action="{{ url_for('encodeForm') }}">
 
-        <h2>Encode Image</h2>
-        <label>
+                <h2>Encode Image</h2>
+                <label>
           <span>Enter Text</span>
           <input for="text1" name="text1" type="text" style="margin-bottom:10px" required />
         </label>
-        <!-- <label>
+                <!-- <label>
           <span style="margin-top:0px">Or</span>
           <button for="uploadfile" type="button" class="submit" style="width:70%;margin-top:10px">Upload
             File</button>
         </label> -->
-        <label>
+                <label>
           <span>Upload Image</span>
           <label class="custom-file-upload">
-            <input for="uploaded_image" name="uploaded_image" type="file" required />
+            <input for="uploaded_image" id="actualbtn" name="uploaded_image" type="file" required />
             Upload Image
           </label>
-        </label>
+                <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
+                </label>
 
-        <button type="submit" class="submit">Encode</button>
-        {% if flag %}
-        <a href="{{ '../static/images/encoded.png' }}" download>
-          Download
-        </a>
-        {% endif %}
-        <button for="downloadimage" type="button" class="fb-btn"><span>Download Image</span></button>
-      </form>
-    </div>
-    <div class="sub-cont">
-      <div class="img">
-        <div class="img__text m--up">
-          <h2>Decode Image</h2>
-          <p>Click on the below button to decode image</p>
+                <input type="file" name="file" id="file" class="inputfile" />
+                <button type="submit" class="submit">Encode</button> {% if flag %}
+                <label style="margin-bottom: 10px;">
+                  <span>Download Image</span>
+                
+                </label>
+                <a href="{{ '../static/images/encoded.png' }}" download style="all: unset;">
+                    <button for="downloadimage" type="button" class="fb-btn"><span></span>
+            Download
+            </span></button>
+                </a> {% endif %}
+
+            </form>
         </div>
-        <div class="img__text m--in">
-          <h2>Encode Image</h2>
-          <p>Click on the below button to encode image</p>
-        </div>
-        <div class="img__btn">
-          <span class="m--up">Decode</span>
-          <span class="m--in">Encode</span>
-        </div>
-      </div>
-      <div class="form">
-        <h2>Decode Image</h2>
-        <form method="POST" id="form1" enctype="multipart/form-data" action="{{ url_for('decodeForm') }}">
-          <label>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h2>Decode Image</h2>
+                    <p>Click on the below button to decode image</p>
+                </div>
+                <div class="img__text m--in">
+                    <h2>Encode Image</h2>
+                    <p>Click on the below button to encode image</p>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Decode</span>
+                    <span class="m--in">Encode</span>
+                </div>
+            </div>
+            <div class="form">
+                <h2>Decode Image</h2>
+                <form method="POST" id="form1" enctype="multipart/form-data" action="{{ url_for('decodeForm') }}">
+                    <label>
             <label>
               <span style="padding-bottom:80px">Upload Image to be decoded</span>
               <br>
               <span>Upload Image</span>
               <label class="custom-file-upload">
-                <input for="input_image" name="input_image" type="file" required />
+                <input for="uploaded_image" id="actualbtn" name="uploaded_image" type="file" required />
                 Upload Image
               </label>
-            </label>
-          </label>
-          <label style="margin-left:25%">
+                    <span id="filechosen" style="color: rgb(168, 166, 166);">No file chosen</span>
+                    </label>
+                    </label>
+                    <label style="margin-left:25%">
             <span style="margin-bottom:100px">Output Text</span>
             <button type="submit" class="submit">Decode</button>
           </label>
-        </form>
-        {% if text %}
-        <div style="margin-top:15px;margin-left:0px">
-          <p>{{ text }}</p>
+                </form>
+                <label>
+          <span style="padding-bottom:80px">The decoded text will appear below</span>
+        </label> {% if text %}
+                <div style="margin-top:15px;margin-left:100px">
+                    <p>{{ text }}</p>
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
-      </div>
     </div>
-  </div>
 
-  <script src="../static/javascript/home.js"></script>
+    <script src="../static/javascript/home.js"></script>
 </body>
 
 </html>
