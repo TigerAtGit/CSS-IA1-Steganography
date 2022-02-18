@@ -34,8 +34,15 @@ This is a web application capable of Encoding data (text) into the image and Dec
 - Run app using cmd: `flask run`
 - Project will then run on localhost (http://127.0.0.1:5000/)
 
-### Demo video:
+## Demo video:
 
-https://user-images.githubusercontent.com/68952732/154542582-ebd4c57e-8197-4012-a63e-696e7cb2b013.mp4
+https://user-images.githubusercontent.com/77017010/154711700-4e15f575-b758-4efb-8653-162fbb5985d5.mp4
+
+
+## Developed by:
+- Piyush Sharma (1911104)
+- R. Vishal (1911107)
+- Kush Patel (1911101)
+
 
 
