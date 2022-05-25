@@ -42,7 +42,6 @@ https://user-images.githubusercontent.com/77017010/154711700-4e15f575-b758-4efb-
 ## Developed by:
 - Piyush Sharma (1911104)
 - R. Vishal (1911107)
-- Kush Patel (1911101)
 
 
 
